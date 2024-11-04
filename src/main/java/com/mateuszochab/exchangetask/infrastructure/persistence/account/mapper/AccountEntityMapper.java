@@ -13,6 +13,7 @@ public interface AccountEntityMapper {
     AccountEntityMapper MAPPER = Mappers.getMapper(AccountEntityMapper.class);
 
     @Mapping(target = "version", ignore = true)
+    @Mapping(target = "balance")
     AccountEntity mapAccountToAccountEntity(Account account);
     Account mapAccountEntityToAccount(AccountEntity accountEntity);
 }

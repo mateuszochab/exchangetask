@@ -1,4 +1,4 @@
-package com.mateuszochab.exchangetask.infrastructure.rest.account.dto;
+package com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response;
 
 import com.mateuszochab.exchangetask.domain.balance.model.Balance;
 import lombok.AllArgsConstructor;
@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * Create Account Response Dto
+ * Get Account Response Dto class
  */
 
 @AllArgsConstructor
@@ -20,7 +20,7 @@ import java.util.UUID;
 @Setter
 @Builder
 @NoArgsConstructor
-public class CreateAccountResponseDto {
+public class GetAccountResponseDto {
     private UUID id;
     private String firstname;
     private String lastname;

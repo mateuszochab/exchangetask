@@ -4,7 +4,8 @@ import com.mateuszochab.exchangetask.domain.account.model.Account;
 import com.mateuszochab.exchangetask.domain.balance.model.Balance;
 import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.BalanceRequestDto;
 import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.CreateAccountRequestDto;
-import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.CreateAccountResponseDto;
+import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response.CreateAccountResponseDto;
+import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response.GetAccountResponseDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;
@@ -23,5 +24,8 @@ public interface AccountMapper {
     CreateAccountResponseDto mapAccountToCreateAccountResponseDto(Account account);
 
     Balance mapBalanceRequestDtoToBalance(BalanceRequestDto balanceRequestDto);
+
+    @Mapping(target = "id", source = "uuid")
+    GetAccountResponseDto mapAccountToGetAccountResponseDto(Account account);
 
 }
