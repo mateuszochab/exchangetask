@@ -1,0 +1,9 @@
+services:
+  postgres:
+    image: 'postgres:latest'
+    environment:
+      - 'POSTGRES_DB=taskdb'
+      - 'POSTGRES_PASSWORD=pgm'
+      - 'POSTGRES_USER=pgm'
+    ports:
+      - '5432:5432'

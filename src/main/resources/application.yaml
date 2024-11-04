@@ -1,0 +1,24 @@
+spring:
+  application:
+    name: exchangetask
+#  docker:
+#    compose:
+#      lifecycle-management: start_and_stop
+  datasource:
+    url: jdbc:postgresql://${DB_URL:localhost}:${DB_PORT:5432}/${DB_NAME:taskdb}?u&stringtype=unspecified
+    username: ${DB_USERNAME:pgm}
+    password: ${DB_PASSWORD:pgm}
+  jpa:
+    show-sql: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format-sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  threads:
+    virtual:
+      enabled: true
+server:
+  port: 8080
