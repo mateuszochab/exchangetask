@@ -9,7 +9,9 @@ import com.mateuszochab.exchangetask.infrastructure.persistence.account.reposito
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Service
@@ -33,5 +35,12 @@ public class AccountAdapter implements AccountPort {
         return AccountEntityMapper.MAPPER.mapAccountEntityToAccount(
                 accountRepository.findByUuid(accountId)
                         .orElseThrow(() -> new AccountNotFoundException(accountId)));
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        return accountRepository.findAll().stream()
+                .map(AccountEntityMapper.MAPPER::mapAccountEntityToAccount)
+                .collect(Collectors.toList());
     }
 }

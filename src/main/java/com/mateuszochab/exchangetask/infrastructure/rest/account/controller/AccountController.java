@@ -2,6 +2,7 @@ package com.mateuszochab.exchangetask.infrastructure.rest.account.controller;
 
 import com.mateuszochab.exchangetask.domain.account.exception.CreateAccountProblemDomainException;
 import com.mateuszochab.exchangetask.domain.account.exception.GetAccountProblemDomainException;
+import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response.GetAllAccountsResponseDto;
 import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response.CreateAccountResponseDto;
 import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.CreateAccountRequestDto;
 import com.mateuszochab.exchangetask.infrastructure.rest.account.dto.response.GetAccountResponseDto;
@@ -24,5 +25,7 @@ public sealed interface AccountController permits AccountControllerImpl {
     @GetMapping("/{accountId}")
     GetAccountResponseDto getAccount(@PathVariable UUID accountId) throws GetAccountProblemDomainException;
 
+    @GetMapping("/all")
+    GetAllAccountsResponseDto getAllAccounts() throws GetAccountProblemDomainException;
 
 }
