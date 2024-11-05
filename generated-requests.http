@@ -1,0 +1,36 @@
+
+###
+GET http://localhost/api/v1/accounts/{{accountId}}
+
+###
+POST http://localhost/api/v1/accounts
+Content-Type: application/json
+
+{
+  "firstname": "Jan",
+  "lastname": "Barski",
+  "balance": [
+    {
+      "currency": "PLN",
+      "amount": 3990.0
+    },
+    {
+      "currency": "USD",
+      "amount": 800.0
+    }
+  ]
+}
+
+###
+GET http://localhost/api/v1/accounts/all
+
+###
+PUT http://localhost/api/v1/balances/convert
+Content-Type: application/json
+
+{
+  "from": "PLN",
+  "to": "USD",
+  "amount": 500,
+  "accountId": ""
+}
