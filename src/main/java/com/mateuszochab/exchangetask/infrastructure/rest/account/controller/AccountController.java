@@ -18,7 +18,6 @@ import java.util.UUID;
 @RequestMapping(path = "/api/v1/accounts")
 public sealed interface AccountController permits AccountControllerImpl {
 
-
     @PostMapping
     CreateAccountResponseDto createAccount(@RequestBody @Valid CreateAccountRequestDto createAccountRequestDto) throws CreateAccountProblemDomainException;
 
